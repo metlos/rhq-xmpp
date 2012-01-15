@@ -32,7 +32,6 @@ public class XMPPComponent implements ServerPluginComponent {
 		try {
 			XMPPConnectionManager connectionManager = XMPPConnectionManager.getInstance();
 			connectionManager.connect(server, port, username, password, serviceName);
-//			CLIScriptsManager.getInstance().start();
 		} catch (XMPPException e) {
 			log.error("Error while starting XMPP components", e);
 		}
