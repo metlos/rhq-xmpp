@@ -1,0 +1,13 @@
+package org.rhq.enterprise.server.plugins.xmpp.receiver.strategy;
+
+public class HelpHandler implements CommandHandlerStrategy{
+
+	@Override
+	public String handle(String parameter) {
+		StringBuilder responseBuilder = new StringBuilder();
+		responseBuilder.append("list platforms|servers|services");
+		responseBuilder.append("status <resourceId>");
+		return responseBuilder.toString();
+	}
+	
+}

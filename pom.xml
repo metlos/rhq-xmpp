@@ -4,16 +4,16 @@
 
 	<groupId>org.rhq</groupId>
 	<artifactId>alert-xmpp</artifactId>
-	<version>4.0.1</version>
+	<version>1.0-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>Custom RHQ Server Plugin Template</name>
+	<name>RHQ Server plugin for XMPP</name>
 	<description>
-		A template for building a custom generic RHQ Server plugin
+		A plugin that brings XMPP capabilities to RHQ Server 
 	</description>
 
 	<properties>
-		<rhq.version>4.0.1</rhq.version>
+		<rhq.version>4.2.0</rhq.version>
 	</properties>
 
 	<dependencies>
@@ -50,6 +50,13 @@
 			<scope>provided</scope>
 			<!-- provided by the server/plugin-container -->
 		</dependency>
+		<dependency>
+            <groupId>org.rhq</groupId>
+            <artifactId>rhq-server-client-api</artifactId>
+            <version>4.0.1</version>
+            <type>jar</type>
+            <scope>compile</scope>
+        </dependency>
 		<dependency>
 			<groupId>org.jivesoftware</groupId>
 			<artifactId>smack</artifactId>
