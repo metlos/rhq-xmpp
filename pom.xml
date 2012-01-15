@@ -8,13 +8,16 @@
 	<packaging>jar</packaging>
 
 	<name>RHQ Server plugin for XMPP</name>
-	<description>
-		A plugin that brings XMPP capabilities to RHQ Server 
-	</description>
+	<description>A plugin that brings XMPP capabilities to RHQ Server</description>
 
 	<properties>
 		<rhq.version>4.2.0</rhq.version>
 	</properties>
+
+	<scm>
+		<connection>https://rafachies@github.com/rafachies/rhq-xmpp.git</connection>
+		<developerConnection>https://rafachies@github.com/rafachies/rhq-xmpp.git</developerConnection>
+	</scm>
 
 	<dependencies>
 		<!-- Below are the core modules that are required dependencies of all plugins -->
@@ -51,12 +54,12 @@
 			<!-- provided by the server/plugin-container -->
 		</dependency>
 		<dependency>
-            <groupId>org.rhq</groupId>
-            <artifactId>rhq-server-client-api</artifactId>
-            <version>4.0.1</version>
-            <type>jar</type>
-            <scope>compile</scope>
-        </dependency>
+			<groupId>org.rhq</groupId>
+			<artifactId>rhq-server-client-api</artifactId>
+			<version>4.0.1</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
 		<dependency>
 			<groupId>org.jivesoftware</groupId>
 			<artifactId>smack</artifactId>
@@ -74,25 +77,27 @@
 				</configuration>
 			</plugin>
 			<plugin>
-             			<artifactId>maven-dependency-plugin</artifactId>
-                		<executions>
-                    			<execution>
-                       				<id>copy-dependencies</id>
-				                <phase>process-resources</phase>
-                       				<goals><goal>copy</goal></goals>
-                       				<configuration>
-                          				<artifactItems>
-                             					<artifactItem>
-                                					<groupId>org.jivesoftware</groupId>
-                                					<artifactId>smack</artifactId>
-                                					<version>3.2.1</version>
-                             					</artifactItem>
-                          				</artifactItems>
-                          				<outputDirectory>${project.build.outputDirectory}/lib</outputDirectory>
-                       				</configuration>
-                    			</execution>
-                 		</executions>
-           		</plugin>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>copy-dependencies</id>
+						<phase>process-resources</phase>
+						<goals>
+							<goal>copy</goal>
+						</goals>
+						<configuration>
+							<artifactItems>
+								<artifactItem>
+									<groupId>org.jivesoftware</groupId>
+									<artifactId>smack</artifactId>
+									<version>3.2.1</version>
+								</artifactItem>
+							</artifactItems>
+							<outputDirectory>${project.build.outputDirectory}/lib</outputDirectory>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
 			<plugin>
 				<artifactId>maven-antrun-plugin</artifactId>
 				<executions>
@@ -100,19 +105,24 @@
 						<phase>integration-test</phase>
 						<configuration>
 							<tasks>
-								<property name="test.classpath" refid="maven.test.classpath"/>
+								<property name="test.classpath" refid="maven.test.classpath" />
 								<echo>Validating plugins...</echo>
-								<java classname="org.rhq.enterprise.server.plugin.pc.ServerPluginValidatorUtil" failonerror="true" fork="true">
-								<classpath>
-									<pathelement path="${test.classpath}"/>
-									<pathelement location="target/alert-xmpp-${project.version}.jar"/>
-								</classpath>
-								<sysproperty key="org.apache.commons.logging.Log" value="org.apache.commons.logging.impl.SimpleLog"/>
-								<sysproperty key="rhq.test.serverplugins" value="${rhq.test.serverplugins}"/>
+								<java
+									classname="org.rhq.enterprise.server.plugin.pc.ServerPluginValidatorUtil"
+									failonerror="true" fork="true">
+									<classpath>
+										<pathelement path="${test.classpath}" />
+										<pathelement location="target/alert-xmpp-${project.version}.jar" />
+									</classpath>
+									<sysproperty key="org.apache.commons.logging.Log"
+										value="org.apache.commons.logging.impl.SimpleLog" />
+									<sysproperty key="rhq.test.serverplugins" value="${rhq.test.serverplugins}" />
 								</java>
 							</tasks>
 						</configuration>
-						<goals><goal>run</goal></goals>
+						<goals>
+							<goal>run</goal>
+						</goals>
 					</execution>
 				</executions>
 			</plugin>
@@ -136,5 +146,5 @@
 			</snapshots>
 		</repository>
 	</repositories>
-	
+
 </project>

@@ -1,5 +1,6 @@
 package org.rhq.enterprise.server.plugins.xmpp;
 
+import org.apache.tools.ant.taskdefs.email.Message;
 import org.jivesoftware.smack.Chat;
 import org.jivesoftware.smack.ChatManager;
 import org.jivesoftware.smack.ConnectionConfiguration;
@@ -47,5 +48,5 @@ public class XMPPConnectionManager {
 	private void checkConnection() {
 		
 	}
-
+	
 }

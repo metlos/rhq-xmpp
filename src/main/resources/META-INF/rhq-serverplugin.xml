@@ -7,12 +7,14 @@
 	description="Alert sender plugin that sends alert notifications via XMPP messages"
 	disabledOnDiscovery="true">
 
-	<serverplugin:help>
-		Used to send notifications by XMPP chat.
-    </serverplugin:help>
+	<serverplugin:help>Used to send notifications by XMPP chat.</serverplugin:help>
 
-	<!-- startup & tear down listener, + scheduled jobs -->
 	<serverplugin:plugin-component class="XMPPComponent" />
+	
+	<plugin-class>org.rhq.enterprise.server.plugins.xmpp.sender.XMPPSender</plugin-class>
+
+	<short-name>XMPP message</short-name>
+
 
 	<!-- Global preferences for all XMPP alerts -->
 	<serverplugin:plugin-configuration>
@@ -33,13 +35,10 @@
 			description="Username to be used on chat" type="string" required="true" />
 		<c:simple-property name="password" displayName="Password"
 			description="User password" type="password" required="true" />
+			
 	</serverplugin:plugin-configuration>
 
-	<!-- How does this sender show up in drop downs etc -->
-	<short-name>XMPP message</short-name>
-
-	<!-- Class that does the actual sending -->
-	<plugin-class>org.rhq.enterprise.server.plugins.xmpp.sender.XMPPSender</plugin-class>
+	
 
 	<alert-configuration>
 		<c:simple-property name="messageTo" type="string"
