@@ -15,8 +15,9 @@
 	</properties>
 
 	<scm>
-		<connection>https://rafachies@github.com/rafachies/rhq-xmpp.git</connection>
-		<developerConnection>https://rafachies@github.com/rafachies/rhq-xmpp.git</developerConnection>
+		<connection>scm:git:git@github.com:rafachies/rhq-xmpp.git</connection>
+      		<url>scm:git:git@github.com:rafachies/rhq-xmpp.git</url>
+      		<developerConnection>scm:git:git@github.com:rafachies/rhq-xmpp.git</developerConnection>
 	</scm>
 
 	<dependencies>
@@ -130,6 +131,7 @@
 	</build>
 
 	<repositories>
+		<!-- TODO: search for a public repository for smack 3.2.1 -->
 		<repository>
 			<id>thirdparty</id>
 			<url>http://localhost:8081/nexus/content/repositories/thirdparty</url>

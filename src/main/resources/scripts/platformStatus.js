@@ -16,4 +16,4 @@ var data = MeasurementDataManager.findDataForResource(resource.id, definitionIdA
 for (i = 0; i < definitions.size(); i++) {
         result = result + definitions.get(i).displayName + " - " + data.get(i).get(0).value + definitions.get(i).units + '\n';
 }
-pretty.print(result);
+//pretty.print(result);
