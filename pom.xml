@@ -11,7 +11,7 @@
 	<description>A plugin that brings XMPP capabilities to RHQ Server</description>
 
 	<properties>
-		<rhq.version>4.2.0</rhq.version>
+		<rhq.version>4.3.0-SNAPSHOT</rhq.version>
 	</properties>
 
 	<scm>
@@ -25,14 +25,14 @@
 		<dependency>
 			<groupId>org.rhq</groupId>
 			<artifactId>rhq-enterprise-server</artifactId>
-			<version>4.0.1</version>
+			<version>${rhq.version}</version>
 			<scope>provided</scope>
 			<!-- provided by the server/plugin-container -->
 		</dependency>
 		<dependency>
 			<groupId>org.rhq</groupId>
 			<artifactId>rhq-core-domain</artifactId>
-			<version>4.0.1</version>
+			<version>${rhq.version}</version>
 			<scope>provided</scope>
 			<!-- provided by the server/plugin-container -->
 		</dependency>
@@ -57,16 +57,28 @@
 		<dependency>
 			<groupId>org.rhq</groupId>
 			<artifactId>rhq-server-client-api</artifactId>
-			<version>4.0.1</version>
+			<version>${rhq.version}</version>
 			<type>jar</type>
 			<scope>compile</scope>
 		</dependency>
+        <dependency>
+            <groupId>org.rhq</groupId>
+            <artifactId>rhq-script-bindings</artifactId>
+            <version>${rhq.version}</version>
+            <scope>compile</scope>
+        </dependency>
 		<dependency>
-			<groupId>org.jivesoftware</groupId>
+			<groupId>org.igniterealtime.smack</groupId>
 			<artifactId>smack</artifactId>
 			<version>3.2.1</version>
 			<scope>compile</scope>
 		</dependency>
+        <dependency>
+            <groupId>org.igniterealtime.smack</groupId>
+            <artifactId>smackx</artifactId>
+            <version>3.2.1</version>
+            <scope>compile</scope>
+        </dependency>
 	</dependencies>
 	<build>
 		<plugins>
@@ -89,10 +101,15 @@
 						<configuration>
 							<artifactItems>
 								<artifactItem>
-									<groupId>org.jivesoftware</groupId>
+									<groupId>org.igniterealtime.smack</groupId>
 									<artifactId>smack</artifactId>
 									<version>3.2.1</version>
 								</artifactItem>
+                                <artifactItem>
+                                    <groupId>org.igniterealtime.smack</groupId>
+                                    <artifactId>smackx</artifactId>
+                                    <version>3.2.1</version>
+                                </artifactItem>
 							</artifactItems>
 							<outputDirectory>${project.build.outputDirectory}/lib</outputDirectory>
 						</configuration>
@@ -134,24 +151,5 @@
           		</plugin>
 		</plugins>
 	</build>
-
-	<repositories>
-		<!-- TODO: search for a public repository for smack 3.2.1 -->
-		<repository>
-			<id>thirdparty</id>
-			<url>http://localhost:8081/nexus/content/repositories/thirdparty</url>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-		</repository>
-		<repository>
-			<id>jboss-public-repository-group</id>
-			<name>JBoss Public Maven Repository Group</name>
-			<url>https://repository.jboss.org/nexus/content/groups/public/</url>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-		</repository>
-	</repositories>
 
 </project>

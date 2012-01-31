@@ -3,11 +3,11 @@ package org.rhq.enterprise.server.plugins.xmpp.sender;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.jivesoftware.smack.XMPPException;
+
 import org.rhq.core.domain.alert.Alert;
 import org.rhq.core.domain.alert.notification.SenderResult;
 import org.rhq.enterprise.server.alert.AlertManagerLocal;
 import org.rhq.enterprise.server.plugin.pc.alert.AlertSender;
-import org.rhq.enterprise.server.plugins.xmpp.CLIScriptsManager;
 import org.rhq.enterprise.server.plugins.xmpp.XMPPComponent;
 import org.rhq.enterprise.server.plugins.xmpp.XMPPConnectionManager;
 import org.rhq.enterprise.server.util.LookupUtil;
@@ -15,7 +15,7 @@ import org.rhq.enterprise.server.util.LookupUtil;
 
 public class XMPPSender extends AlertSender<XMPPComponent> {
 
-	private static final Log log = LogFactory.getLog(CLIScriptsManager.class);
+	private static final Log log = LogFactory.getLog(XMPPSender.class);
 	
 	
 	@Override

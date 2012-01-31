@@ -11,11 +11,6 @@
 
 	<serverplugin:plugin-component class="XMPPComponent" />
 	
-	<plugin-class>org.rhq.enterprise.server.plugins.xmpp.sender.XMPPSender</plugin-class>
-
-	<short-name>XMPP message</short-name>
-
-
 	<!-- Global preferences for all XMPP alerts -->
 	<serverplugin:plugin-configuration>
 		<c:simple-property name="server" displayName="XMPP Server Host"
@@ -38,7 +33,9 @@
 			
 	</serverplugin:plugin-configuration>
 
-	
+    <short-name>XMPP message</short-name>
+
+    <plugin-class>org.rhq.enterprise.server.plugins.xmpp.sender.XMPPSender</plugin-class>
 
 	<alert-configuration>
 		<c:simple-property name="messageTo" type="string"
